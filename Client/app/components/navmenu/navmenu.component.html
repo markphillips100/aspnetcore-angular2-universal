@@ -42,6 +42,16 @@
                         <span class='glyphicon glyphicon-comment'></span> Chat
                     </a>
                 </li>-->
+        <li [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/httpdemo/angular']">
+            <span class='glyphicon glyphicon-wrench'></span> Angular HTTP Demo
+          </a>
+        </li>
+        <li [routerLinkActive]="['link-active']">
+          <a [routerLink]="['/httpdemo/axios']">
+            <span class='glyphicon glyphicon-wrench'></span> Axios HTTP Demo
+          </a>
+        </li>
       </ul>
     </div>
   </div>

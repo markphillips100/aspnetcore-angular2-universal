@@ -18,6 +18,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { CounterComponent } from './containers/counter/counter.component';
 import { ChatComponent } from './containers/chat/chat.component';
 import { NgxBootstrapComponent } from './containers/ngx-bootstrap-demo/ngx-bootstrap.component';
+import { HttpDemoComponent } from './containers/httpdemo/httpdemo.component';
 
 import { LinkService } from './shared/link.service';
 import { UserService } from './shared/user.service';
@@ -43,7 +44,8 @@ export function createTranslateLoader(http: Http, baseHref) {
         UserDetailComponent,
         HomeComponent,
         ChatComponent,
-        NgxBootstrapComponent
+        NgxBootstrapComponent,
+        HttpDemoComponent,
     ],
     imports: [
         CommonModule,
@@ -132,8 +134,26 @@ export function createTranslateLoader(http: Http, baseHref) {
                     ]
                 }
             },
+            {
+                path: 'httpdemo', children: [
+                    {
+                        path: 'angular', component: HttpDemoComponent, data: {
+                            title: 'Angular HTTP demo example',
+                            meta: [{ name: 'description', content: 'This is a demo of angular http calls' }],
+                            requestlib: "angular"
+                        }
+                    },
+                    {
+                        path: 'axios', component: HttpDemoComponent, data: {
+                            title: 'Axios HTTP demo example',
+                            meta: [{ name: 'description', content: 'This is a demo of axios http calls' }],
+                            requestlib: "axios"
+                        }
+                    },
+                ]
+            },
 
-            { path: 'lazy', loadChildren: './containers/+lazy/lazy.module#LazyModule'},
+            { path: 'lazy', loadChildren: './containers/+lazy/lazy.module#LazyModule' },
 
             // All else fails - go home!
             { path: '**', redirectTo: 'home' }
