@@ -150,6 +150,13 @@ export function createTranslateLoader(http: Http, baseHref) {
                             requestlib: "axios"
                         }
                     },
+                    {
+                        path: 'node', component: HttpDemoComponent, data: {
+                            title: 'Node HTTP demo example',
+                            meta: [{ name: 'description', content: 'This is a demo of Node http calls' }],
+                            requestlib: "node"
+                        }
+                    },
                 ]
             },
 
